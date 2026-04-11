@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blessing Martins — Violinist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A96E; --gold-light: #E8D5A8;
+    --cream: #FAF7F2; --ink: #1A1510; --ink-soft: #3D3327; --muted: #8A7B6B;
+    --rule: rgba(201,169,110,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(250,247,242,0.92); backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold); padding: 0.5rem 1.25rem; text-decoration: none; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--gold); color: var(--cream); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; position: relative; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 6rem 4rem 6rem 5rem; position: relative; z-index: 2; }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-bg-shape { position: absolute; top: 0; right: 0; bottom: 0; width: 100%; background: #1A1510; }
+  .hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 0.5px; background: var(--gold); }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1rem; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-size: 0.85rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 2rem; }
+  .hero-desc { font-size: 1rem; line-height: 1.8; color: var(--ink-soft); max-width: 420px; margin-bottom: 3rem; font-weight: 300; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--cream); padding: 0.9rem 2.25rem; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer; display: inline-block; }
+  .btn-primary:hover { background: var(--ink); }
+  .btn-ghost { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--gold); }
+  .hero-accent-text { position: absolute; bottom: 3rem; left: 2rem; font-family: 'Cormorant Garamond', serif; font-size: clamp(6rem, 10vw, 12rem); font-weight: 300; font-style: italic; color: rgba(201,169,110,0.07); line-height: 1; user-select: none; pointer-events: none; white-space: nowrap; }
+  .credential-badge { position: absolute; top: 2.5rem; right: 2.5rem; border: 0.5px solid rgba(201,169,110,0.4); padding: 0.75rem 1rem; text-align: center; z-index: 3; }
+  .credential-badge p { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.2rem; }
+  .credential-badge strong { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 400; color: #fff; display: block; }
+  .violin-svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 180px; opacity: 0.12; }
+
+  section { padding: 7rem 5rem; }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; display: block; width: 2rem; height: 0.5px; background: var(--gold); }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 3.5vw, 3.6rem); font-weight: 300; line-height: 1.1; color: var(--ink); }
+  h2 em { font-style: italic; color: var(--gold); }
+
+  .services { background: var(--ink); }
+  .services .section-label { color: var(--gold); }
+  .services .section-label::before { background: var(--gold); }
+  .services h2 { color: #fff; }
+  .services-intro { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 500px; margin: 1.5rem 0 4rem; font-weight: 300; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,110,0.15); border: 0.5px solid rgba(201,169,110,0.15); }
+  .service-card { padding: 2.5rem 2rem; background: var(--ink); transition: background 0.3s; }
+  .service-card:hover { background: #221A0F; }
+  .service-num { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.5rem; opacity: 0.7; }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #fff; margin-bottom: 0.75rem; }
+  .service-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  .about-section { padding: 7rem 5rem; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .about-visual { position: relative; background: #1A1510; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .about-visual-inner { font-family: 'Cormorant Garamond', serif; font-size: 8rem; font-style: italic; font-weight: 300; color: rgba(201,169,110,0.08); user-select: none; padding: 4rem 3rem; line-height: 1; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid rgba(201,169,110,0.2); }
+  .stat { padding: 1.25rem; text-align: center; border-right: 0.5px solid rgba(201,169,110,0.2); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); display: block; line-height: 1; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.3rem; display: block; }
+  .about-body { font-size: 1rem; line-height: 1.9; color: var(--ink-soft); margin: 1.5rem 0 2rem; font-weight: 300; }
+  .about-body p + p { margin-top: 1rem; }
+  .credentials-list { list-style: none; margin-bottom: 2rem; }
+  .credentials-list li { display: flex; align-items: baseline; gap: 0.75rem; font-size: 0.85rem; color: var(--muted); padding: 0.6rem 0; border-bottom: 0.5px solid var(--rule); }
+  .credentials-list li::before { content: '◆'; font-size: 0.4rem; color: var(--gold); flex-shrink: 0; }
+
+  .highlights { background: #0E0C09; padding: 7rem 5rem; }
+  .highlights .section-label { color: var(--gold); }
+  .highlights .section-label::before { background: var(--gold); }
+  .highlights h2 { color: #fff; margin-bottom: 3.5rem; }
+  .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .highlight-card { border: 0.5px solid rgba(201,169,110,0.2); padding: 2rem; }
+  .highlight-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--gold); margin-bottom: 0.75rem; }
+  .highlight-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  .genres { padding: 5rem; background: var(--cream); border-top: 0.5px solid var(--rule); border-bottom: 0.5px solid var(--rule); }
+  .genres-inner { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; }
+  .genres-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+  .genres-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .genre-tag { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); border: 0.5px solid var(--rule); padding: 0.45rem 1rem; }
+
+  .quote-section { background: var(--gold); padding: 5rem; text-align: center; }
+  blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; font-style: italic; color: var(--ink); line-height: 1.4; max-width: 750px; margin: 0 auto 1.5rem; }
+  .quote-attr { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(26,21,16,0.6); }
+
+  .booking { display: grid; grid-template-columns: 1fr 1fr; }
+  .booking-left { background: #0E0C09; padding: 5rem; display: flex; flex-direction: column; justify-content: center; }
+  .booking-left h2 { color: #fff; }
+  .booking-left .section-label { color: var(--gold); }
+  .booking-left .section-label::before { background: var(--gold); }
+  .booking-body { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.5); margin: 1.5rem 0 2.5rem; font-weight: 300; }
+  .booking-right { padding: 5rem; background: #16120B; }
+  .form-group { margin-bottom: 1.5rem; }
+  label { display: block; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+  input, select, textarea { width: 100%; background: rgba(255,255,255,0.04); border: 0.5px solid rgba(201,169,110,0.2); color: #fff; padding: 0.8rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s; appearance: none; }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  textarea { resize: none; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn { width: 100%; background: var(--gold); color: var(--ink); border: none; padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; margin-top: 0.5rem; }
+  .submit-btn:hover { background: #E8C178; }
+
+  footer { background: #0A0806; padding: 3rem 5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid rgba(201,169,110,0.1); }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: rgba(255,255,255,0.5); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-ig a { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 0.5px solid rgba(201,169,110,0.4); padding: 0.5rem 1rem; transition: all 0.2s; }
+  .footer-ig a:hover { background: var(--gold); color: var(--ink); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.8s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.45s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.55s; }
+  .hero-right { animation: fadeUp 1s ease 0.3s both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Blessing Martins</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#book">Contact</a></li>
+  </ul>
+  <a href="#book" class="nav-cta">Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Lagos, Nigeria · Boston, Massachusetts · Worldwide</p>
+    <h1>Music<br>that <em>moves</em><br>people</h1>
+    <p class="hero-sub">Multi-Genre Violinist · Educator · Music Advocate</p>
+    <p class="hero-desc">
+      Blessing Martins — also known as BlessingViolinist — is a professional violinist, music educator, and advocate whose performances have graced stages across Nigeria, America, and beyond.
+    </p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Inquire for Booking</a>
+      <a href="#about" class="btn-ghost">Learn more ↓</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-accent-text">𝄞</div>
+    <div class="credential-badge">
+      <p>Master of Music Education</p>
+      <strong>Boston University</strong>
+    </div>
+    <svg class="violin-svg" viewBox="0 0 200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="180" rx="55" ry="80" stroke="#C9A96E" stroke-width="1.5"/>
+      <ellipse cx="100" cy="330" rx="65" ry="90" stroke="#C9A96E" stroke-width="1.5"/>
+      <path d="M45 180 Q30 255 35 330" stroke="#C9A96E" stroke-width="1.5"/>
+      <path d="M155 180 Q170 255 165 330" stroke="#C9A96E" stroke-width="1.5"/>
+      <line x1="100" y1="100" x2="100" y2="50" stroke="#C9A96E" stroke-width="2"/>
+      <rect x="90" y="40" width="20" height="15" rx="2" stroke="#C9A96E" stroke-width="1"/>
+      <line x1="70" y1="255" x2="130" y2="255" stroke="#C9A96E" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="72" y1="262" x2="128" y2="262" stroke="#C9A96E" stroke-width="1"/>
+    </svg>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What he offers</div>
+  <h2>Performances for<br><em>every occasion</em></h2>
+  <p class="services-intro">From proposals and weddings to conferences and religious gatherings — every performance is crafted with artistry and heart.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Weddings &amp; Proposals</h3>
+      <p>Create an unforgettable moment with live violin — from ceremony processionals to first dance accompaniments and surprise proposals.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Events &amp; Conferences</h3>
+      <p>Elevate corporate events, birthday celebrations, religious gatherings, and private parties with a bespoke live performance.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Music Education</h3>
+      <p>Violin instruction, music theory, and inclusive music education for all ages — with a specialization in students with disabilities.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div>
+        <div class="about-visual-inner">BV</div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">B.A.</span>
+            <span class="stat-label">Univ. of Lagos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">M.M.</span>
+            <span class="stat-label">Boston University</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">About Blessing</div>
+      <h2>Trained. Passionate.<br><em>Unforgettable.</em></h2>
+      <div class="about-body">
+        <p>Blessing Martins — also known as BlessingViolinist — is a multi-genre professional violinist, musician, music educator, advocate, and paraprofessional. Born and raised in Lagos, Nigeria, he moved to Boston, Massachusetts to pursue a Master's degree in Music Education at Boston University.</p>
+        <p>Blessing earned a Bachelor of Arts in Music from the University of Lagos, a Diploma in Violin Performance from the Musical Society of Nigeria (MUSON), ABRSM Grade 8 in violin performance, Grade 7 in theory, and holds a Level 1 Suzuki violin teacher certification.</p>
+        <p>More than just a performer, Blessing is a dedicated music advocate with a deep commitment to inclusive education. His work with students with disabilities — including co-teaching at the MPHS special education program — reflects his belief that music has the power to unlock hidden talent and serve as a meaningful form of therapy.</p>
+      </div>
+      <ul class="credentials-list">
+        <li>M.M. Music Education — Boston University</li>
+        <li>B.A. Music — University of Lagos, Nigeria</li>
+        <li>Diploma in Violin Performance — MUSON</li>
+        <li>ABRSM Grade 8 Violin · Grade 7 Theory</li>
+        <li>Level 1 Suzuki Violin Teacher</li>
+        <li>MUSON School of Music Quest Youth Competition Winner</li>
+        <li>Special Educator &amp; Paraprofessional</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="highlights" id="highlights">
+  <div class="section-label">Notable moments</div>
+  <h2>A career of <em>landmark</em> performances</h2>
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <h4>Boston Globe Feature</h4>
+      <p>After performing at the Central Boston Elder Services 11th Annual Centenarian Induction Ceremony (Class of 2024) — attended by Mayor Michelle Wu — Blessing was featured in the Boston Globe.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>International Orchestras</h4>
+      <p>Blessing has performed with local and international orchestras, including the Boston University Concert Orchestra and the Stellenbosch Chamber Music Festival in South Africa.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Thousands of Audiences</h4>
+      <p>He has performed at proposals, weddings, birthdays, conferences, and religious gatherings for thousands across Nigeria and America, including the New England Soul Line Dancers Anniversary.</p>
+    </div>
+  </div>
+</section>
+
+<div class="genres">
+  <div class="genres-inner">
+    <span class="genres-label">Genres</span>
+    <div class="genres-tags">
+      <span class="genre-tag">Classical</span>
+      <span class="genre-tag">Afrobeat</span>
+      <span class="genre-tag">Gospel</span>
+      <span class="genre-tag">R&amp;B</span>
+      <span class="genre-tag">Jazz</span>
+      <span class="genre-tag">Contemporary</span>
+    </div>
+  </div>
+</div>
+
+<div class="quote-section">
+  <blockquote>"Music has the power to bring out the hidden talent in students and, in the form of therapy, significantly improve the coping skills of students and adults with disabilities."</blockquote>
+  <p class="quote-attr">— Blessing Martins</p>
+</div>
+
+<section class="booking" id="book" style="padding:0">
+  <div class="booking-left">
+    <div class="section-label">Get in touch</div>
+    <h2>Let's make<br>your moment<br><em>magical</em></h2>
+    <p class="booking-body">
+      Ready to add the beauty of live violin to your special occasion? Send a booking inquiry and Blessing will be in touch within 48 hours.
+    </p>
+    <a href="https://www.instagram.com/blessingviolinist/" class="btn-primary">Follow on Instagram</a>
+  </div>
+  <div class="booking-right">
+    <div class="form-group form-row">
+      <div>
+        <label>First name</label>
+        <input type="text" id="fname" placeholder="Jane">
+      </div>
+      <div>
+        <label>Last name</label>
+        <input type="text" id="lname" placeholder="Doe">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" id="email" placeholder="jane@example.com">
+    </div>
+    <div class="form-group form-row">
+      <div>
+        <label>Event type</label>
+        <select id="event">
+          <option value="" disabled selected>Select type</option>
+          <option>Wedding Ceremony</option>
+          <option>Proposal</option>
+          <option>Corporate / Conference</option>
+          <option>Birthday</option>
+          <option>Religious Gathering</option>
+          <option>Music Lessons</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Event date</label>
+        <input type="date" id="date">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Tell him about your vision</label>
+      <textarea id="msg" rows="4" placeholder="Share the details of your event..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="handleSubmit()">Send Inquiry →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Blessing Martins</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#book">Contact</a>
+  </div>
+  <div class="footer-ig">
+    <a href="https://www.instagram.com/blessingviolinist/" target="_blank">@blessingviolinist</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  const event = document.getElementById('event').value;
+  if (!name || !email || !event) { alert('Please fill in your name, email, and event type.'); return; }
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Inquiry sent! ✓';
+  btn.style.background = '#5A7A4A';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
