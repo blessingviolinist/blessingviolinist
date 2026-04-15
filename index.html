@@ -94,9 +94,17 @@
   .services h2 { color: #fff; }
   .services-intro { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 500px; margin: 1.5rem 0 4rem; font-weight: 300; }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,110,0.15); border: 0.5px solid rgba(201,169,110,0.15); }
-  .service-card { padding: 2.5rem 2rem; background: var(--ink); transition: background 0.3s; }
+  .service-card { background: var(--ink); transition: background 0.3s; overflow: hidden; }
   .service-card:hover { background: #221A0F; }
-  .service-num { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.5rem; opacity: 0.7; }
+  .service-card-img {
+    width: 100%; aspect-ratio: 3/2; background: #0d0a07;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem;
+    border-bottom: 0.5px solid rgba(201,169,110,0.12);
+  }
+  .service-card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .service-card-body { padding: 2rem 2rem 2.5rem; }
+  .service-num { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.25rem; opacity: 0.7; }
   .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: #fff; margin-bottom: 0.75rem; }
   .service-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.45); font-weight: 300; }
 
@@ -113,9 +121,21 @@
   .highlights .section-label::before { background: var(--gold); }
   .highlights h2 { color: #fff; margin-bottom: 3.5rem; }
   .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .highlight-card { border: 0.5px solid rgba(201,169,110,0.2); padding: 2rem; }
+  .highlight-card { border: 0.5px solid rgba(201,169,110,0.2); overflow: hidden; }
+  .highlight-card-img {
+    width: 100%; aspect-ratio: 16/9; background: #1a1510;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem;
+    border-bottom: 0.5px solid rgba(201,169,110,0.12);
+  }
+  .highlight-card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .highlight-card-body { padding: 1.75rem; }
   .highlight-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--gold); margin-bottom: 0.75rem; }
   .highlight-card p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.45); font-weight: 300; }
+  /* ── CARD PHOTO PLACEHOLDERS ── */
+  .card-photo-placeholder-icon { width: 36px; height: 36px; border: 1px solid rgba(201,169,110,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .card-photo-placeholder-icon svg { opacity: 0.35; }
+  .card-photo-placeholder-label { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,169,110,0.4); text-align: center; line-height: 1.7; pointer-events: none; }
 
   .genres { padding: 3.5rem 5rem; background: var(--cream); border-top: 0.5px solid var(--rule); border-bottom: 0.5px solid var(--rule); }
   .genres-inner { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; }
@@ -320,19 +340,43 @@
   <p class="services-intro">From proposals and weddings to conferences and religious gatherings — every performance is crafted with artistry and heart.</p>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>Weddings &amp; Proposals</h3>
-      <p>Create an unforgettable moment with live violin — from ceremony processionals to first dance accompaniments and surprise proposals.</p>
+      <!-- SERVICE PHOTO 1: rename file to service-weddings.jpg and uncomment the img tag -->
+      <div class="service-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">service-weddings.jpg</p>
+         <img src="service-weddings.jpg" alt="Weddings and Proposals"> 
+      </div>
+      <div class="service-card-body">
+        <div class="service-num">01</div>
+        <h3>Weddings &amp; Proposals</h3>
+        <p>Create an unforgettable moment with live violin — from ceremony processionals to first dance accompaniments and surprise proposals.</p>
+      </div>
     </div>
     <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>Events &amp; Conferences</h3>
-      <p>Elevate corporate events, birthday celebrations, religious gatherings, and private parties with a bespoke live performance.</p>
+      <!-- SERVICE PHOTO 2: rename file to service-events.jpg and uncomment the img tag -->
+      <div class="service-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">service-events.jpg</p>
+         <img src="service-events.jpg" alt="Events and Conferences"> 
+      </div>
+      <div class="service-card-body">
+        <div class="service-num">02</div>
+        <h3>Events &amp; Conferences</h3>
+        <p>Elevate corporate events, birthday celebrations, religious gatherings, and private parties with a bespoke live performance.</p>
+      </div>
     </div>
     <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>Music Education</h3>
-      <p>Violin instruction, music theory, and inclusive music education for all ages — with a specialization in students with disabilities.</p>
+      <!-- SERVICE PHOTO 3: rename file to service-education.jpg and uncomment the img tag -->
+      <div class="service-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">service-education.jpg</p>
+        <!-- <img src="service-education.jpg" alt="Music Education"> -->
+      </div>
+      <div class="service-card-body">
+        <div class="service-num">03</div>
+        <h3>Music Education</h3>
+        <p>Violin instruction, music theory, and inclusive music education for all ages — with a specialization in students with disabilities.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -396,16 +440,40 @@
   <h2>A career of <em>landmark</em> performances</h2>
   <div class="highlights-grid">
     <div class="highlight-card">
-      <h4>Boston Globe Feature</h4>
-      <p>After performing at the Central Boston Elder Services 11th Annual Centenarian Induction Ceremony (Class of 2024) — attended by Mayor Michelle Wu — Blessing was featured in the Boston Globe.</p>
+      <!-- HIGHLIGHT PHOTO 1: rename file to highlight-globe.jpg and uncomment the img tag -->
+      <div class="highlight-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">highlight-globe.jpg</p>
+        <!-- <img src="highlight-globe.jpg" alt="Boston Globe Feature"> -->
+      </div>
+      <div class="highlight-card-body">
+        <h4>Boston Globe Feature</h4>
+        <p>After performing at the Central Boston Elder Services 11th Annual Centenarian Induction Ceremony (Class of 2024) — attended by Mayor Michelle Wu — Blessing was featured in the Boston Globe.</p>
+      </div>
     </div>
     <div class="highlight-card">
-      <h4>International Orchestras</h4>
-      <p>Blessing has performed with local and international orchestras, including the Boston University Concert Orchestra and the Stellenbosch Chamber Music Festival in South Africa.</p>
+      <!-- HIGHLIGHT PHOTO 2: rename file to highlight-orchestra.jpg and uncomment the img tag -->
+      <div class="highlight-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">highlight-orchestra.jpg</p>
+        <!-- <img src="highlight-orchestra.jpg" alt="International Orchestras"> -->
+      </div>
+      <div class="highlight-card-body">
+        <h4>International Orchestras</h4>
+        <p>Blessing has performed with local and international orchestras, including the Boston University Concert Orchestra and the Stellenbosch Chamber Music Festival in South Africa.</p>
+      </div>
     </div>
     <div class="highlight-card">
-      <h4>Thousands of Audiences</h4>
-      <p>He has performed at proposals, weddings, birthdays, conferences, and religious gatherings for thousands across Nigeria and America, including the New England Soul Line Dancers Anniversary.</p>
+      <!-- HIGHLIGHT PHOTO 3: rename file to highlight-audiences.jpg and uncomment the img tag -->
+      <div class="highlight-card-img">
+        <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+        <p class="card-photo-placeholder-label">highlight-audiences.jpg</p>
+        <!-- <img src="highlight-audiences.jpg" alt="Thousands of Audiences"> -->
+      </div>
+      <div class="highlight-card-body">
+        <h4>Thousands of Audiences</h4>
+        <p>He has performed at proposals, weddings, birthdays, conferences, and religious gatherings for thousands across Nigeria and America, including the New England Soul Line Dancers Anniversary.</p>
+      </div>
     </div>
   </div>
 </section>
