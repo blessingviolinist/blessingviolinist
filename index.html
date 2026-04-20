@@ -218,8 +218,21 @@
   /* ══════════════════════════════════
      MOBILE  ≤ 600px
   ══════════════════════════════════ */
+  @media (max-width: 900px) {
+    .social-bar { padding: 1rem 1.5rem; gap: 0.75rem; }
+    .video-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .support-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .support-right { padding: 2.5rem; }
+  }
+
   @media (max-width: 600px) {
     nav { padding: 1rem 1.25rem; }
+    .social-bar { padding: 1rem; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .social-bar-label { width: 100%; text-align: center; margin-right: 0; margin-bottom: 0.25rem; }
+    .video-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .support-section { padding: 4rem 1.5rem; }
+    .support-social-row { gap: 0.5rem; }
+    .support-social-btn { font-size: 0.6rem; padding: 0.55rem 0.85rem; }
 
     .hero { grid-template-columns: 1fr; padding-top: 60px; }
     .hero-left { padding: 2.5rem 1.5rem 3rem; order: 2; }
@@ -271,6 +284,53 @@
     .genres { padding-left: 1.25rem; padding-right: 1.25rem; }
     .quote-section { padding-left: 1.25rem; padding-right: 1.25rem; }
   }
+
+  /* ── SOCIAL BAR ── */
+  .social-bar { background: var(--ink); padding: 1.25rem 5rem; display: flex; justify-content: center; align-items: center; gap: 1.25rem; border-bottom: 0.5px solid rgba(201,169,110,0.15); }
+  .social-bar a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 0.5px solid rgba(201,169,110,0.3); color: var(--gold); text-decoration: none; transition: all 0.2s; flex-shrink: 0; }
+  .social-bar a:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .social-bar a svg { width: 18px; height: 18px; fill: currentColor; }
+  .social-bar-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-right: 1rem; }
+
+  /* ── MEDIA SECTION ── */
+  .media-section { background: var(--ink); padding: 7rem 5rem; }
+  .media-section .section-label { color: var(--gold); }
+  .media-section .section-label::before { background: var(--gold); }
+  .media-section h2 { color: #fff; margin-bottom: 3rem; }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .video-slot { position: relative; aspect-ratio: 16/9; background: #0d0a07; border: 0.5px solid rgba(201,169,110,0.15); overflow: hidden; }
+  .video-slot iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  .video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
+  .video-placeholder-icon { width: 52px; height: 52px; border: 1px solid rgba(201,169,110,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .video-placeholder-icon svg { opacity: 0.5; width: 22px; height: 22px; fill: var(--gold); }
+  .video-placeholder p { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,169,110,0.4); text-align: center; line-height: 1.8; padding: 0 1.5rem; }
+  .video-placeholder code { font-size: 0.58rem; color: rgba(201,169,110,0.6); background: rgba(201,169,110,0.08); padding: 0.2rem 0.5rem; border-radius: 2px; font-family: monospace; }
+  .media-cta { margin-top: 2.5rem; text-align: center; }
+  .media-cta a { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold); padding: 0.8rem 2rem; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .media-cta a:hover { background: var(--gold); color: var(--ink); }
+
+  /* ── SUPPORT / DONATION SECTION ── */
+  .support-section { background: var(--cream); padding: 7rem 5rem; }
+  .support-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .support-left h2 { margin-bottom: 1rem; }
+  .support-desc { font-size: 1rem; line-height: 1.8; color: var(--ink-soft); margin: 1.5rem 0 2.5rem; font-weight: 300; max-width: 480px; }
+  .payment-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .payment-card { display: flex; align-items: center; gap: 1.25rem; border: 0.5px solid var(--rule); padding: 1.25rem 1.5rem; background: #fff; transition: border-color 0.2s; text-decoration: none; }
+  .payment-card:hover { border-color: var(--gold); }
+  .payment-card-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .payment-card-icon svg { width: 32px; height: 32px; }
+  .payment-card-info { flex: 1; }
+  .payment-card-platform { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+  .payment-card-handle { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); }
+  .payment-card-arrow { font-size: 1rem; color: var(--gold); }
+
+  .support-right { background: var(--ink); padding: 3rem; text-align: center; }
+  .support-right-label { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+  .support-right-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 2rem; }
+  .support-social-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+  .support-social-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; border: 0.5px solid rgba(201,169,110,0.3); color: var(--gold); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .support-social-btn:hover { background: var(--gold); color: var(--ink); }
+  .support-social-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -282,6 +342,8 @@
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#support">Support</a></li>
     <li><a href="#book">Contact</a></li>
   </ul>
   <a href="#book" class="nav-cta">Book Now</a>
@@ -295,6 +357,8 @@
   <a href="#about" class="mobile-link">About</a>
   <a href="#services" class="mobile-link">Services</a>
   <a href="#highlights" class="mobile-link">Highlights</a>
+  <a href="#media" class="mobile-link">Media</a>
+  <a href="#support" class="mobile-link">Support</a>
   <a href="#book" class="mobile-link">Contact</a>
   <a href="#book" class="mobile-cta mobile-link">Book Now</a>
 </div>
@@ -344,7 +408,7 @@
       <div class="service-card-img">
         <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <p class="card-photo-placeholder-label">service-weddings.jpg</p>
-         <img src="service-weddings.jpg" alt="Weddings and Proposals"> 
+        <img src="service-weddings.jpg" alt="Weddings and Proposals">
       </div>
       <div class="service-card-body">
         <div class="service-num">01</div>
@@ -357,7 +421,7 @@
       <div class="service-card-img">
         <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <p class="card-photo-placeholder-label">service-events.jpg</p>
-         <img src="service-events.jpg" alt="Events and Conferences"> 
+        <img src="service-events.jpg" alt="Events and Conferences">
       </div>
       <div class="service-card-body">
         <div class="service-num">02</div>
@@ -400,7 +464,7 @@
           </svg>
         </div>
         <p class="photo-placeholder-label">About photo goes here<br>Rename file to about.jpg</p>
-         <img src="about.jpg" alt="Blessing Martins">
+        <img src="about.jpg" alt="Blessing Martins">
       </div>
       <div class="about-stats">
         <div class="stat">
@@ -444,7 +508,7 @@
       <div class="highlight-card-img">
         <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <p class="card-photo-placeholder-label">highlight-globe.jpg</p>
-         <img src="highlight-globe.jpg" alt="Boston Globe Feature"> 
+        <img src="highlight-globe.jpg" alt="Boston Globe Feature">
       </div>
       <div class="highlight-card-body">
         <h4>Boston Globe Feature</h4>
@@ -456,7 +520,7 @@
       <div class="highlight-card-img">
         <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <p class="card-photo-placeholder-label">highlight-orchestra.jpg</p>
-         <img src="highlight-orchestra.jpg" alt="International Orchestras">
+        <img src="highlight-orchestra.jpg" alt="International Orchestras">
       </div>
       <div class="highlight-card-body">
         <h4>International Orchestras</h4>
@@ -468,7 +532,7 @@
       <div class="highlight-card-img">
         <div class="card-photo-placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
         <p class="card-photo-placeholder-label">highlight-audiences.jpg</p>
-         <img src="highlight-audiences.jpg" alt="Thousands of Audiences">
+        <img src="highlight-audiences.jpg" alt="Thousands of Audiences"> 
       </div>
       <div class="highlight-card-body">
         <h4>Thousands of Audiences</h4>
@@ -499,6 +563,165 @@
   <p class="quote-attr">— Blessing Martins</p>
 </div>
 
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <span class="social-bar-label">Follow Blessing</span>
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/blessingviolinist/" target="_blank" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <!-- YouTube -->
+  <a href="https://www.youtube.com/@blessingviolinist" target="_blank" aria-label="YouTube">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/blessingviolinist" target="_blank" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@blessingviolinist" target="_blank" aria-label="TikTok">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+  </a>
+  <!-- PayPal shortcut -->
+  <a href="https://paypal.me/BlessingOM" target="_blank" aria-label="Donate via PayPal" style="gap:0.4rem; width:auto; padding: 0 1rem; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase;">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 4.643-5.813 4.643h-2.19c-1.044 0-1.932.762-2.095 1.796l-1.12 7.106-.034.218H7.076l.925-5.858h2.34c3.733 0 6.855-1.505 7.766-5.996.33-1.647.133-2.95-.885-3.622z"/></svg>
+    Donate
+  </a>
+</div>
+
+<!-- MEDIA -->
+<section class="media-section" id="media">
+  <div class="section-label">Watch &amp; Listen</div>
+  <h2>Featured <em>Videos</em></h2>
+  <div class="video-grid">
+
+    <div class="video-slot">
+      <!--
+        VIDEO 1: Paste a YouTube embed URL below.
+        1. Go to the YouTube video
+        2. Click Share → Embed
+        3. Copy just the src URL (looks like: https://www.youtube.com/embed/XXXXXXXXXXX)
+        4. Replace YOUR_VIDEO_ID_1 below with that URL
+      -->
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p>Paste YouTube embed URL<br>to activate this video</p>
+        <code>YOUR_VIDEO_ID_1</code>
+      </div>
+      <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" allowfullscreen></iframe> -->
+    </div>
+
+    <div class="video-slot">
+      <!--
+        VIDEO 2: Same steps as above — replace YOUR_VIDEO_ID_2
+      -->
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p>Paste YouTube embed URL<br>to activate this video</p>
+        <code>YOUR_VIDEO_ID_2</code>
+      </div>
+      <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" allowfullscreen></iframe> -->
+    </div>
+
+    <div class="video-slot">
+      <!--
+        VIDEO 3: Same steps as above — replace YOUR_VIDEO_ID_3
+      -->
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p>Paste YouTube embed URL<br>to activate this video</p>
+        <code>YOUR_VIDEO_ID_3</code>
+      </div>
+      <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" allowfullscreen></iframe> -->
+    </div>
+
+  </div>
+  <div class="media-cta">
+    <a href="https://www.youtube.com/@blessingviolinist" target="_blank">View all videos on YouTube →</a>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support-section" id="support">
+  <div class="support-inner">
+    <div class="support-left">
+      <div class="section-label">Support the music</div>
+      <h2>Love what you <em>hear?</em></h2>
+      <p class="support-desc">Your support helps Blessing continue creating music, educating students, and performing for audiences across the world. Every contribution — big or small — is deeply appreciated.</p>
+      <div class="payment-cards">
+
+        <!-- PayPal -->
+        <a class="payment-card" href="https://paypal.me/BlessingOM" target="_blank" rel="noopener">
+          <div class="payment-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#003087" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 4.643-5.813 4.643h-2.19c-1.044 0-1.932.762-2.095 1.796l-1.12 7.106-.034.218H7.076l.925-5.858h2.34c3.733 0 6.855-1.505 7.766-5.996.33-1.647.133-2.95-.885-3.622z"/><path fill="#009cde" d="M19.54 6.918c-.59 3.025-2.566 4.643-5.813 4.643h-2.19c-1.044 0-1.932.762-2.095 1.796l-1.12 7.106-.034.218H5.76l.032-.2 1.12-7.106c.163-1.034 1.051-1.796 2.095-1.796h2.19c3.247 0 5.223-1.618 5.813-4.643.33-1.647.133-2.95-.885-3.622a3.35 3.35 0 0 1 .607.541c1.018.672 1.215 1.975.885 3.622z"/></svg>
+          </div>
+          <div class="payment-card-info">
+            <div class="payment-card-platform">PayPal</div>
+            <div class="payment-card-handle">paypal.me/BlessingOM</div>
+          </div>
+          <span class="payment-card-arrow">→</span>
+        </a>
+
+        <!-- CashApp -->
+        <a class="payment-card" href="https://cash.app/$BleciolinMartins" target="_blank" rel="noopener">
+          <div class="payment-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#00D64F" d="M23.59 3.48A5 5 0 0 0 20.52.41C18.93 0 12 0 12 0S5.07 0 3.48.41A5 5 0 0 0 .41 3.48C0 5.07 0 12 0 12s0 6.93.41 8.52a5 5 0 0 0 3.07 3.07C5.07 24 12 24 12 24s6.93 0 8.52-.41a5 5 0 0 0 3.07-3.07C24 18.93 24 12 24 12s0-6.93-.41-8.52zm-8.86 7.33-.55.16a4.07 4.07 0 0 0-1.25-.46l-.32-1.08h-1.22l-.32 1.08a4.07 4.07 0 0 0-1.25.46l-.55-.16-1.09 1.09.37.9c-.13.29-.22.59-.27.91l-.86.51v1.54l.86.51c.05.32.14.62.27.91l-.37.9 1.09 1.09.55-.16c.38.19.8.33 1.25.42l.32 1.12h1.22l.32-1.12a4 4 0 0 0 1.25-.42l.55.16 1.09-1.09-.37-.9c.13-.29.22-.59.27-.91l.86-.51v-1.54l-.86-.51a3.57 3.57 0 0 0-.27-.91l.37-.9-1.09-1.09zM12 14.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm3.79-7.08-.74-.45c-.58-.23-1.03-.31-1.03-.31L13.71 6h-3.42l-.31 1.05s-.45.08-1.03.31l-.74.45-1.02-.31-.61.61.31 1.02c-.2.38-.31.62-.31.62l-.44.74v.86l.44.74s.11.24.31.62l-.31 1.02.61.61 1.02-.31c.58.23 1.03.31 1.03.31l.31 1.05h3.42l.31-1.05s.45-.08 1.03-.31l.74-.45 1.02.31.61-.61-.31-1.02c.2-.38.31-.62.31-.62l.44-.74v-.86l-.44-.74s-.11-.24-.31-.62l.31-1.02-.61-.61-1.02.31z"/></svg>
+          </div>
+          <div class="payment-card-info">
+            <div class="payment-card-platform">Cash App</div>
+            <div class="payment-card-handle">$BleciolinMartins</div>
+          </div>
+          <span class="payment-card-arrow">→</span>
+        </a>
+
+        <!-- Venmo placeholder — remove or fill in if Blessing has Venmo -->
+        <!--
+        <a class="payment-card" href="https://venmo.com/YOUR_VENMO" target="_blank" rel="noopener">
+          <div class="payment-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#3D95CE" d="M19.1.7c.6 1 .9 2.1.9 3.4C20 8.1 16.8 13 14.3 16.3L9.5 24H.4L0 .7h7.3l.3 11.4L12.3.7h6.8z"/></svg>
+          </div>
+          <div class="payment-card-info">
+            <div class="payment-card-platform">Venmo</div>
+            <div class="payment-card-handle">@YourVenmoHandle</div>
+          </div>
+          <span class="payment-card-arrow">→</span>
+        </a>
+        -->
+
+      </div>
+    </div>
+
+    <div class="support-right">
+      <span class="support-right-label">Connect with Blessing</span>
+      <p class="support-right-quote">"Music is therapy — for the soul, for the mind, for the community."</p>
+      <div class="support-social-row">
+        <a class="support-social-btn" href="https://www.instagram.com/blessingviolinist/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
+        <a class="support-social-btn" href="https://www.youtube.com/@blessingviolinist" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+        <a class="support-social-btn" href="https://www.facebook.com/blessingviolinist" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a class="support-social-btn" href="https://www.tiktok.com/@blessingviolinist" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BOOKING -->
 <section class="booking" id="book" style="padding:0">
   <div class="booking-left">
@@ -514,7 +737,7 @@
       FORMSPREE: Replace YOUR_FORM_ID with the ID from formspree.io
       Example: action="https://formspree.io/f/xpwzgkjn"
     -->
-    <form id="booking-form" action="https://formspree.io/f/xbdpnkvg" method="POST">
+    <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="form-group form-row">
         <div>
           <label for="fname">First name</label>
@@ -564,6 +787,8 @@
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#highlights">Highlights</a>
+    <a href="#media">Media</a>
+    <a href="#support">Support</a>
     <a href="#book">Contact</a>
   </div>
   <div class="footer-ig">
